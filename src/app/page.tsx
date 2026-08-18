@@ -876,10 +876,17 @@ export default function Home() {
               className="flex flex-col items-start gap-4 md:pt-1"
             >
 
-              {/* Name */}
-              <motion.p variants={fadeUp} className="text-2xl sm:text-3xl font-extrabold text-white">
-                Niña Aurelio
-              </motion.p>
+              {/* Name + location */}
+              <motion.div variants={fadeUp}>
+                <p className="text-3xl sm:text-4xl font-extrabold text-white">Niña Aurelio</p>
+                <p className="flex items-center gap-1.5 text-white/50 text-xs mt-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z" />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                  Manila, Philippines
+                </p>
+              </motion.div>
 
               {/* Availability — noticeable pill */}
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20">
