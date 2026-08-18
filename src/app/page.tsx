@@ -358,9 +358,9 @@ export default function Home() {
                 <path d="M12 0 C12 0 10.5 10.5 0 12 C10.5 13.5 12 24 12 24 C12 24 13.5 13.5 24 12 C13.5 10.5 12 0 12 0Z"/>
               </motion.svg>
               <motion.div
-                initial={{ y: -320, opacity: 0 }}
+                initial={{ y: -120, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.1, margin: "400px 0px 0px 0px" }}
+                viewport={{ once: true, amount: 0.35 }}
                 transition={{ type: "spring", stiffness: 70, damping: 14, delay: 0.1 }}
                 className="relative flex flex-col items-center"
               >
