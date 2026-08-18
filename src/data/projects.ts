@@ -73,5 +73,6 @@ export const projects: Project[] = [
     desc: "Live inventory tracking system for a cafeteria with 20+ inventory items.",
     tech: ["Java", "JavaFX", "CSS", "PostgreSQL"],
     link: "https://drive.google.com/file/d/1wCdr6igBXb0e4HRuAiOegiaCdNSyg2UH/view?usp=sharing",
+    appLink: "https://github.com/cidivinag/CMSC127_CoffeeShop_System.git",
   },
 ];
