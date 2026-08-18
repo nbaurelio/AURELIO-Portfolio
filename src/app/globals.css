@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #8F1B4B;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Hovering one project card gently dims its neighbors so the hovered card pops — only on devices with real hover, so a tap on touch screens can't get this stuck on. */
+@media (hover: hover) and (pointer: fine) {
+  .project-hover-group:has(.project-card-item:hover) .project-card-item:not(:hover) {
+    opacity: 0.55;
+    filter: blur(1px) saturate(0.8);
+  }
+}
+
+.project-card-item {
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.typewriter-cursor {
+  animation: typewriter-blink 0.85s step-end infinite;
+}
+
+@keyframes typewriter-blink {
+  50% { opacity: 0; }
+}
