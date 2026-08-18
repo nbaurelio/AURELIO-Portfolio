@@ -875,15 +875,23 @@ export default function Home() {
               viewport={{ once: true, amount: 0.1 }}
               className="flex flex-col items-start gap-4 md:pt-1"
             >
-              <motion.p variants={fadeUp} className="text-white/40 tracking-[0.2em] uppercase text-xs">Other ways to reach me</motion.p>
 
-              {/* Open-to-work badge */}
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20">
-                <span className="relative flex w-2 h-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: "#FFB6C1" }} />
-                  <span className="relative inline-flex w-2 h-2 rounded-full" style={{ background: "#FFB6C1" }} />
-                </span>
-                <span className="text-white/80 text-xs sm:text-sm font-medium">Open to full-stack development and AI automation roles</span>
+              {/* Services offered */}
+              <motion.div variants={fadeUp} className="w-full">
+                <p className="text-white/40 tracking-[0.2em] uppercase text-xs mb-2">Services Offered</p>
+                <div className="flex flex-wrap gap-2">
+                  {expertiseItems.map((item) => (
+                    <span
+                      key={item.n}
+                      className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium"
+                    >
+                      {item.title}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-white/40 text-xs mt-2">
+                  Don&apos;t see what you need? Reach out — happy to discuss if it aligns with my skill set.
+                </p>
               </motion.div>
 
               {/* Location / availability */}
@@ -892,8 +900,10 @@ export default function Home() {
                   <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z" />
                   <circle cx="12" cy="10" r="2.5" />
                 </svg>
-                Manila, Philippines · Open to remote or on-site opportunities
+                Manila, Philippines · Open to remote, onsite, or hybrid opportunities
               </motion.p>
+
+              <motion.p variants={fadeUp} className="text-white/40 tracking-[0.2em] uppercase text-xs">Other ways to reach me</motion.p>
 
               {/* Email — clickable mailto, not just an icon */}
               <motion.a
