@@ -891,7 +891,7 @@ export default function Home() {
               </motion.div>
 
               {/* Services offered */}
-              <motion.div variants={fadeUp} className="w-full">
+              <motion.div variants={fadeUp} className="w-full mt-4">
                 <p className="text-white/40 tracking-[0.2em] uppercase text-xs mb-2">Services Offered</p>
                 <div className="flex flex-wrap gap-2">
                   {expertiseItems.map((item) => (
@@ -908,7 +908,7 @@ export default function Home() {
                 </p>
               </motion.div>
 
-              <motion.p variants={fadeUp} className="text-white/40 tracking-[0.2em] uppercase text-xs">Other ways to reach me</motion.p>
+              <motion.p variants={fadeUp} className="text-white/40 tracking-[0.2em] uppercase text-xs mt-4">Other ways to reach me</motion.p>
 
               {/* Resume download + email + social profiles */}
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mt-1">
