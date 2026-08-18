@@ -12,7 +12,7 @@ export default function ProjectsMarquee({ projects }: { projects: Project[] }) {
 
   return (
     <div
-      className="marquee-mask overflow-hidden"
+      className="marquee-mask overflow-x-hidden"
       onMouseEnter={() => canHover && setPaused(true)}
       onMouseLeave={() => canHover && setPaused(false)}
     >

@@ -33,14 +33,13 @@ export default function TypewriterText({
     return () => { clearTimeout(start); clearTimeout(timer); };
   }, [full, speed, startDelay]);
 
-  let remaining = count;
   const done = count >= full.length;
 
   return (
     <>
       {segments.map((seg, idx) => {
-        const take = Math.max(0, Math.min(seg.text.length, remaining));
-        remaining -= seg.text.length;
+        const consumedBefore = segments.slice(0, idx).reduce((sum, s) => sum + s.text.length, 0);
+        const take = Math.max(0, Math.min(seg.text.length, count - consumedBefore));
         if (take === 0) return null;
         return (
           <span key={idx} style={seg.color ? { color: seg.color } : undefined}>

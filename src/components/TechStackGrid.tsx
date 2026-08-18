@@ -19,14 +19,12 @@ export default function TechStackGrid({ categories }: { categories: Category[] }
     return () => clearInterval(id);
   }, [totalSkills]);
 
-  let offset = 0;
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {categories.map(({ category, skills }) => {
+      {categories.map(({ category, skills }, i) => {
+        const offset = categories.slice(0, i).reduce((sum, c) => sum + c.skills.length, 0);
         const localIndex = globalIndex - offset;
         const activeIndex = localIndex >= 0 && localIndex < skills.length ? localIndex : -1;
-        offset += skills.length;
         return (
           <TechCategoryCard key={category} category={category} skills={skills} activeIndex={activeIndex} />
         );
