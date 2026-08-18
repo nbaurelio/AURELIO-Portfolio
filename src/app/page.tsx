@@ -878,7 +878,9 @@ export default function Home() {
 
               {/* Name + location */}
               <motion.div variants={fadeUp}>
-                <p className="text-3xl sm:text-4xl font-extrabold text-white">Niña Aurelio</p>
+                <Link href="/#about" className="inline-block text-3xl sm:text-4xl font-extrabold text-white md:hover:text-[#FFB6C1] transition-colors duration-200">
+                  Niña Aurelio
+                </Link>
                 <p className="flex items-center gap-1.5 text-white/50 text-xs mt-1.5">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z" />
@@ -891,8 +893,8 @@ export default function Home() {
               {/* Availability — noticeable pill */}
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20">
                 <span className="relative flex w-2 h-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: "#FFB6C1" }} />
-                  <span className="relative inline-flex w-2 h-2 rounded-full" style={{ background: "#FFB6C1" }} />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: "#90EE90" }} />
+                  <span className="relative inline-flex w-2 h-2 rounded-full" style={{ background: "#90EE90" }} />
                 </span>
                 <span className="text-white/80 text-xs sm:text-sm font-medium">Open to remote, onsite, or hybrid opportunities</span>
               </motion.div>
