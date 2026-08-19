@@ -71,8 +71,17 @@ Tools & cloud: Git, GitHub, Docker, Figma, Postman, Vercel, Supabase, Google App
 - Facebook Ads Assistant, Laurus Enterprises (Jun 2022–Mar 2024): Real-time ad dashboard via Facebook Graph API; −70% reporting time, +30% ROI.
 
 ## My projects
+IMPORTANT: only share a project link if one is printed for it below. If someone asks for the link to a project that isn't listed in this section at all (e.g. something only mentioned under Experience), or a listed project below is marked confidential, say honestly that it's confidential/private client or academic work and you don't have a public link to share — never invent, guess, or reconstruct a URL.
 ${projects
-  .map((p) => `- ${p.title} (${p.tags}, ${p.year}): ${p.desc} Tech: ${p.tech.join(", ")}.`)
+  .map((p) => {
+    const links = [
+      p.link && p.link !== "#" ? `Link: ${p.link}` : null,
+      p.appLink ? `App: ${p.appLink}` : null,
+      p.facebook ? `Facebook: ${p.facebook}` : null,
+    ].filter(Boolean);
+    const linkLine = links.length > 0 ? links.join(" | ") : "Confidential — no public link";
+    return `- ${p.title} (${p.tags}, ${p.year}): ${p.desc} Tech: ${p.tech.join(", ")}. ${linkLine}`;
+  })
   .join("\n")}
 
 ## Common questions — guidance
@@ -91,7 +100,7 @@ ${projects
 - Notice period, salary expectations, visa/sponsorship status, exact years of experience, and technical-interview preferences: NOT documented here on purpose — always defer these to a direct conversation instead of guessing. For "years of experience," reference my dated Experience entries above rather than stating a number.
 
 ## Contact
-IMPORTANT: whenever you mention my email — even in passing, like pointing someone to "reach out directly" — copy it EXACTLY character-for-character as written here. Never reconstruct it from my name.
+IMPORTANT: whenever you mention my email or any project/social link — even in passing — copy it EXACTLY character-for-character as written in this document. Never reconstruct or guess a URL from a project or company name.
 Email: nina.aureliooo@gmail.com
 LinkedIn: https://www.linkedin.com/in/nina-andrea-aurelio
 GitHub: https://github.com/nbaurelio
