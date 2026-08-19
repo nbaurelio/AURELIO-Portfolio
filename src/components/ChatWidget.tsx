@@ -10,6 +10,14 @@ interface Message {
 
 const GREETING = "Hi, BFF! 👋 Ask me anything about my background, skills, and projects (and a fun fact or two, if you're curious). What would you like to know?";
 
+const SUGGESTED_QUESTIONS = [
+  "What technologies do you work with?",
+  "Are you available for new opportunities?",
+  "What kind of role are you looking for?",
+  "What projects have you worked on?",
+  "Can I see your resume?",
+];
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -22,9 +30,8 @@ export default function ChatWidget() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
 
-  async function sendMessage(e: React.FormEvent) {
-    e.preventDefault();
-    const text = input.trim();
+  async function sendMessage(rawText: string) {
+    const text = rawText.trim();
     if (!text || loading) return;
 
     const history = messages;
@@ -52,6 +59,11 @@ export default function ChatWidget() {
     } finally {
       setLoading(false);
     }
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    sendMessage(input);
   }
 
   return (
@@ -107,14 +119,11 @@ export default function ChatWidget() {
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 shrink-0" style={{ background: "#8F1B4B" }}>
-              <div
-                className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
-                style={{ background: "linear-gradient(135deg, #FFB6C1 0%, #ff8fae 100%)", color: "#8F1B4B" }}
-              >
-                N
+              <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 border border-white/20">
+                <img src="/about-photo.jpeg" alt="Niña Andrea Aurelio" className="w-full h-full object-cover" />
               </div>
               <div>
-                <p className="text-white font-semibold text-sm">Ask about Niña</p>
+                <p className="text-white font-semibold text-sm">Niña Andrea Aurelio</p>
                 <p className="text-white/50 text-[10px]">Usually answers in seconds</p>
               </div>
             </div>
@@ -124,6 +133,21 @@ export default function ChatWidget() {
               <div className="max-w-[85%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm text-white/90 bg-white/10 self-start">
                 {GREETING}
               </div>
+              {messages.length === 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {SUGGESTED_QUESTIONS.map((q) => (
+                    <button
+                      key={q}
+                      type="button"
+                      onClick={() => sendMessage(q)}
+                      disabled={loading}
+                      className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs md:hover:bg-white/20 transition-colors disabled:opacity-50"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              )}
               {messages.map((m, i) => (
                 <div
                   key={i}
@@ -153,7 +177,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Input */}
-            <form onSubmit={sendMessage} className="flex items-center gap-2 p-3 border-t border-white/10 shrink-0">
+            <form onSubmit={handleSubmit} className="flex items-center gap-2 p-3 border-t border-white/10 shrink-0">
               <input
                 type="text"
                 value={input}
