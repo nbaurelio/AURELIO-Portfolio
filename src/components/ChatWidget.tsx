@@ -210,7 +210,7 @@ export default function ChatWidget() {
               {messages.map((m, i) => (
                 <div
                   key={i}
-                  className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm whitespace-pre-wrap ${
+                  className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm whitespace-pre-wrap break-words ${
                     m.role === "user" ? "self-end rounded-tr-sm font-medium" : "self-start rounded-tl-sm"
                   }`}
                   style={m.role === "user" ? { background: "#8F1B4B", color: "#fff" } : { background: "#FFE0EC", color: "#8F1B4B" }}
