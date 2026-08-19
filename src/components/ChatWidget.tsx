@@ -174,12 +174,19 @@ export default function ChatWidget() {
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 shrink-0" style={{ background: "linear-gradient(135deg, #8F1B4B 0%, #C94080 100%)" }}>
-              <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 border-2 border-white/40">
-                <img src="/about-photo.jpeg" alt="Niña Andrea Aurelio" className="w-full h-full object-cover" />
+              <div className="relative w-9 h-9 shrink-0">
+                <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white/40">
+                  <img src="/about-photo.jpeg" alt="Niña Andrea Aurelio" className="w-full h-full object-cover" />
+                </div>
+                <span
+                  className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white"
+                  style={{ background: "#90EE90" }}
+                  aria-hidden="true"
+                />
               </div>
               <div>
                 <p className="text-white font-semibold text-sm">Niña Andrea Aurelio</p>
-                <p className="text-white/70 text-[10px]">Usually answers in seconds</p>
+                <p className="text-white/70 text-[10px]">🟢 Online now</p>
               </div>
             </div>
 
