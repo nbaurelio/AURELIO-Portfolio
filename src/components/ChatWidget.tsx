@@ -8,7 +8,7 @@ interface Message {
   text: string;
 }
 
-const GREETING = "Hi bff! 👋 I'm here to answer questions about Niña — her background, skills, and projects (and a fun fact or two, if you're curious). What would you like to know?";
+const GREETING = "Hi, BFF! 👋 Ask me anything about my background, skills, and projects (and a fun fact or two, if you're curious). What would you like to know?";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
