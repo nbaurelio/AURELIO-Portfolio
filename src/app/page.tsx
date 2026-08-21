@@ -8,6 +8,7 @@ import ProjectsMarquee from "@/components/ProjectsMarquee";
 import TechStackGrid from "@/components/TechStackGrid";
 import TypewriterText from "@/components/TypewriterText";
 import ContactForm from "@/components/ContactForm";
+import TechPill from "@/components/TechPill";
 import { useCanHover } from "@/hooks/useCanHover";
 
 const fadeUp: Variants = {
@@ -418,9 +419,11 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {["React", "Python", "Java", "Supabase"].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-white/10 border border-white/20 text-white text-xs font-medium rounded-full cursor-default transition-all duration-200 md:hover:bg-[#FFB6C1] md:hover:border-[#FFB6C1] md:hover:text-[#8F1B4B]">
-                    {tech}
-                  </span>
+                  <TechPill
+                    key={tech}
+                    tech={tech}
+                    className="inline-block px-3 py-1 bg-white/10 border border-white/20 text-white text-xs font-medium rounded-full cursor-default transition-all duration-200 md:hover:bg-[#FFB6C1] md:hover:border-[#FFB6C1] md:hover:text-[#8F1B4B]"
+                  />
                 ))}
               </div>
 
@@ -787,7 +790,7 @@ export default function Home() {
           {/* Category cards */}
           <TechStackGrid
             categories={[
-              { category: "Frontend development",   skills: ["React", "Next.js", "JavaScript", "TypeScript", "HTML5", "CSS3"] },
+              { category: "Frontend development",   skills: ["React", "Next.js", "JavaScript", "TypeScript", "HTML", "CSS"] },
               { category: "Backend development",    skills: ["Java", "Python", "Spring Boot", "Django", "FastAPI", "REST APIs", "PostgreSQL", "Stripe"] },
               { category: "AI & automation",        skills: ["OpenAI API", "Gemini API", "Prompt engineering", "ManyChat", "n8n"] },
               { category: "Tools & cloud",          skills: ["Git", "GitHub", "Docker", "Figma", "Postman", "Vercel", "Supabase", "Google Apps Script"] },

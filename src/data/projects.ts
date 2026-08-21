@@ -71,7 +71,7 @@ export const projects: Project[] = [
     title: "Cafeteria Inventory System",
     year: "2022",
     desc: "Live inventory tracking system for a cafeteria with 20+ inventory items.",
-    tech: ["Java", "JavaFX", "CSS", "PostgreSQL"],
+    tech: ["Python", "HTML", "CSS", "PostgreSQL"],
     link: "https://drive.google.com/file/d/1wCdr6igBXb0e4HRuAiOegiaCdNSyg2UH/view?usp=sharing",
     appLink: "https://github.com/cidivinag/CMSC127_CoffeeShop_System.git",
   },

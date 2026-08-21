@@ -1,5 +1,7 @@
 "use client";
 
+import TechPill from "./TechPill";
+
 export default function TechCategoryCard({
   category,
   skills,
@@ -17,16 +19,15 @@ export default function TechCategoryCard({
       <h3 className="font-extrabold text-[#8F1B4B] text-sm mb-3 tracking-wide">{category}</h3>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, i) => (
-          <span
+          <TechPill
             key={skill}
+            tech={skill}
             className={`px-3 py-1 rounded-full text-xs font-semibold cursor-default border-[1.5px] transition-all duration-500 md:hover:scale-105 md:hover:bg-[#8F1B4B] md:hover:text-white md:hover:border-[#8F1B4B] ${
               i === activeIndex
                 ? "scale-105 bg-[#8F1B4B] text-white border-[#8F1B4B]"
                 : "border-[#FFB6C1] text-[#C94080] bg-[#FFF8FA]"
             }`}
-          >
-            {skill}
-          </span>
+          />
         ))}
       </div>
     </div>

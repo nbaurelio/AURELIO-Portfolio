@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import { useCanHover } from "@/hooks/useCanHover";
+import TechPill from "./TechPill";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const canHover = useCanHover();
@@ -32,13 +33,13 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Tech pills */}
       <div className="flex flex-wrap gap-2 mb-4">
         {project.tech.map(t => (
-          <span
+          <TechPill
             key={t}
-            className="px-3 py-1 rounded-full text-xs font-medium cursor-default transition-all duration-200 md:hover:scale-105 md:hover:bg-[#8F1B4B] md:hover:text-white md:hover:border-[#8F1B4B]"
-            style={{ border: "1px solid #FFB6C1", color: "#C94080", background: "#FFF8FA" }}
-          >
-            {t}
-          </span>
+            tech={t}
+            excludeTitle={project.title}
+            label="Also used in"
+            className="px-3 py-1 rounded-full text-xs font-medium cursor-default border border-[#FFB6C1] text-[#C94080] bg-[#FFF8FA] transition-all duration-200 md:hover:scale-105 md:hover:bg-[#8F1B4B] md:hover:text-white md:hover:border-[#8F1B4B]"
+          />
         ))}
       </div>
 
