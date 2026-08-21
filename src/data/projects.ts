@@ -54,7 +54,7 @@ export const projects: Project[] = [
     title: "Special Problem Info System (S.P.I.S.)",
     year: "2025",
     desc: "A web platform for UP Manila's DPSM department to archive and manage undergraduate research submissions, with role-based access for guests, faculty advisers, and staff.",
-    tech: ["Django", "PostgreSQL", "HTML", "CSS", "Java","SSO", "DSpace scraping"],
+    tech: ["Django", "PostgreSQL", "HTML", "CSS", "Java","Google SSO Integration", "Python", "DSpace scraping"],
     link: "https://github.com/smpuang/128SPIS.git",
     appLink: "https://drive.google.com/file/d/1rUO_3yeHlgMNO_LwJOZsxbXRrCt3IzCo/view?usp=sharing",
   },

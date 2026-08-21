@@ -8,6 +8,36 @@ interface Message {
   text: string;
 }
 
+const URL_REGEX = /(https?:\/\/[^\s]+)/g;
+
+// Renders message text with any URLs turned into clickable links, opening in
+// a new tab. Trims trailing punctuation (periods, commas, etc.) off the link
+// itself so a sentence-ending period doesn't get swallowed into the href.
+function linkify(text: string, variant: "user" | "model") {
+  const parts = text.split(URL_REGEX);
+  const linkColor = variant === "user" ? "#FFE0EC" : "#C94080";
+  return parts.map((part, i) => {
+    if (i % 2 !== 1) return part;
+    const match = part.match(/^(.*?)([.,!?;:)\]]*)$/);
+    const url = match ? match[1] : part;
+    const trailing = match ? match[2] : "";
+    return (
+      <span key={i}>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 font-semibold break-all md:hover:opacity-75 transition-opacity"
+          style={{ color: linkColor }}
+        >
+          {url}
+        </a>
+        {trailing}
+      </span>
+    );
+  });
+}
+
 const GREETING = "Hi, BFF! 👋 Ask me anything about my background, skills, and projects (and a fun fact or two, if you're curious). What would you like to know?";
 
 const SUGGESTED_QUESTIONS = [
@@ -101,7 +131,7 @@ export default function ChatWidget() {
               onClick={openChat}
               className="text-[#8F1B4B] text-xs font-medium leading-snug flex-1 text-left"
             >
-              Got questions? Chat with me — I answer instantly! 👋
+              Ask me anything! 👋
             </button>
             <button
               type="button"
@@ -186,7 +216,7 @@ export default function ChatWidget() {
               </div>
               <div>
                 <p className="text-white font-semibold text-sm">Niña Andrea Aurelio</p>
-                <p className="text-white/70 text-[10px]">🟢 Online now</p>
+                <p className="text-white/70 text-[10px]"> Online now</p>
               </div>
             </div>
 
@@ -222,7 +252,7 @@ export default function ChatWidget() {
                   }`}
                   style={m.role === "user" ? { background: "#8F1B4B", color: "#fff" } : { background: "#FFE0EC", color: "#8F1B4B" }}
                 >
-                  {m.text}
+                  {linkify(m.text, m.role)}
                 </div>
               ))}
               {loading && (
