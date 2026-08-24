@@ -67,7 +67,7 @@ Tools & cloud: Git, GitHub, Docker, Figma, Postman, Vercel, Supabase, Google App
 ## My experience
 - Freelance Web Developer, Self-Employed (Oct 2025–Present): AI automation platforms, document summarizers, and a full-stack billing system with Stripe integration.
 - SWE Intern – Head, WiseCare Providers (May–Jun 2025): Led a web-based insurance system; +45% workflow efficiency.
-- SWE Intern, LE PAY (Mar 2024–Apr 2025): Built payment APIs in Java/Spring Boot; −35% transaction latency.
+- Web Development Specialist (promoted from Software Engineer Intern), LE PAY (Mar 2024–Apr 2025): Built payment APIs in Java/Spring Boot; −35% transaction latency.
 - Facebook Ads Assistant, Laurus Enterprises (Jun 2022–Mar 2024): Real-time ad dashboard via Facebook Graph API; −70% reporting time, +30% ROI.
 
 ## My projects

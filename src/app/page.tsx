@@ -434,7 +434,7 @@ export default function Home() {
                 {[
                   { role: "Freelance Web Developer", company: "Self-Employed", period: "Oct 2025 – Present", desc: "AI automation platforms, document summarizers, and a full-stack billing system with Stripe integration." },
                   { role: "SWE Intern – Head", company: "WiseCare Providers", period: "May – Jun 2025", desc: "Led a web-based insurance system; +45% workflow efficiency." },
-                  { role: "SWE Intern", company: "LE PAY", period: "Mar 2024 – Apr 2025", desc: "Built payment APIs in Java/Spring Boot; −35% transaction latency." },
+                  { role: "Web Development Specialist (Promoted from Software Engineer Intern)", company: "LE PAY", period: "Mar 2024 – Apr 2025", desc: "Built payment APIs in Java/Spring Boot; −35% transaction latency." },
                   { role: "Facebook Ads Assistant", company: "Laurus Enterprises", period: "Jun 2022 – Mar 2024", desc: "Real-time ad dashboard via Facebook Graph API; −70% reporting time, +30% ROI." },
                 ].map((exp, i, arr) => (
                   <div key={exp.company} className="group flex gap-3 cursor-default rounded-lg px-2 py-1 -mx-2 md:hover:bg-white/10 transition-all duration-200">
