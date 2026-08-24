@@ -1,16 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import { useCanHover } from "@/hooks/useCanHover";
 import TechPill from "./TechPill";
+import ProjectModal from "./ProjectModal";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const canHover = useCanHover();
+  const [modalOpen, setModalOpen] = useState(false);
   return (
+    <>
     <motion.div
       whileHover={canHover ? { y: -10, scale: 1.035, zIndex: 20, transition: { duration: 0.25, ease: "easeOut" } } : undefined}
-      className="project-card-item relative h-full rounded-2xl p-6 flex flex-col cursor-default transition-shadow duration-300 md:hover:shadow-[0_20px_45px_rgba(143,27,75,0.35)]"
+      onClick={() => setModalOpen(true)}
+      className="project-card-item relative h-full rounded-2xl p-6 flex flex-col cursor-pointer transition-shadow duration-300 md:hover:shadow-[0_20px_45px_rgba(143,27,75,0.35)]"
       style={{ background: "#FFF0F5", border: "1.5px solid #FFD6E0" }}
     >
       {/* Category badge + year */}
@@ -50,6 +55,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-150 md:hover:opacity-70"
             style={{ color: "#8F1B4B" }}
           >
@@ -76,6 +82,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.appLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               aria-label={`Open ${project.title} app`}
               className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 md:hover:scale-110"
               style={{ color: "#8F1B4B", border: "1px solid #FFB6C1" }}
@@ -91,6 +98,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.facebook}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               aria-label={`${project.title} on Facebook`}
               className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 md:hover:scale-110"
               style={{ color: "#8F1B4B", border: "1px solid #FFB6C1" }}
@@ -103,5 +111,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
     </motion.div>
+    {modalOpen && <ProjectModal project={project} onClose={() => setModalOpen(false)} />}
+    </>
   );
 }
