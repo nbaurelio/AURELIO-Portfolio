@@ -64,7 +64,6 @@ export const projects: Project[] = [
     year: "2023",
     desc: "Shopping website with add-to-cart, checkout, and product management features for 15+ products.",
     tech: ["Spring Boot", "Java", "PostgreSQL", "HTML", "CSS"],
-    link: "#",
   },
   {
     tags: "SYSTEMS • INVENTORY",
