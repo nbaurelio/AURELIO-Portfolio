@@ -23,7 +23,7 @@ export const projects: Project[] = [
     appLink: "https://drive.google.com/file/d/11-Zc1p-RfibfVyn4QK93xmZKul2d9jw6/view?usp=sharing",
   },
   {
-    tags: "HEALTHCARE • MOBILE",
+    tags: "HEALTHCARE • FULL-STACK",
     title: "RadDesk",
     year: "2025",
     desc: "A Responsive radiology information system for secure DICOM image management, remote reading, telehealth integration, and automated reporting workflows.",
